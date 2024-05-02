@@ -1,0 +1,48 @@
+<template>
+    <lightning-card class="slds-m-around_medium">
+        <!-- Main Content Section -->
+        <div class="slds-p-around_medium">
+            <!-- Sub-Header Section -->
+            <div style="text-align: center;">
+                <b><h2 style="font-size: 20px;">Mark Attendance</h2></b>
+            </div>
+            <!-- Date and Time Section -->
+            <div>
+                <p>Current Date and Time: {currentDateTime}</p>
+            </div>
+
+            <!-- Add a space or apply margin using the design token -->
+            <div class="slds-var-m-around_medium"></div>
+
+            <!-- Remark Section -->
+            <p><label>Write your remark</label></p>
+            <!-- Set the default size of the textarea -->
+            <textarea
+                id="remarks"
+                name="remarks"
+                style="width: 800px; height: 100px;"
+                placeholder="Enter your remarks here..."
+                oninput={getInputValue}
+            ></textarea>
+            <div class="map-container" lwc:dom="manual"></div>
+            
+            <lightning-map map-markers={markerVar} zoom-level="10" style="height: 200px;"></lightning-map>
+
+            <!-- Action Buttons Section -->
+            <div class="slds-text-align_right">
+                <lightning-button variant="brand" label="Check In" onclick={checkin}></lightning-button>
+                <span style="margin-left:10px;"></span>
+                <lightning-button variant="brand" label="Check Out" onclick={checkout}></lightning-button>
+            </div>
+        </div>
+
+        <!-- Image Section -->
+        <div class="slds-p-around_medium">
+            <img src={Attendance.src} alt="Attendance Image" style="width: 100%;" />
+            <p>
+                <a href={Attendance.href} target="_blank">View on Adobe Stock</a>
+            </p>
+        </div>
+        ttt
+    </lightning-card>
+</template>

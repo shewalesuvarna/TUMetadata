@@ -1,0 +1,13 @@
+<aura:component controller="GetAllContact">
+    <aura:Attribute name ="con" type="Contact[]"/>
+    <aura:attribute name="clm" type="List"/>
+    <lightning:layout multipleRows="true">
+    <aura:iteration items="{v.con}" var="c">
+        <lightning:layoutitem size="2" padding="around-small"/>
+        <div class="box1">
+            Name:{!c.Firstname}{!c.Lastname}<br/>
+            Phone:{!c.phone}
+        </div>
+    </aura:iteration>
+    </lightning:layout>
+</aura:component>

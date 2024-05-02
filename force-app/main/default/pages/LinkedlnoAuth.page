@@ -1,0 +1,23 @@
+<apex:page controller="Linkedin_Example">
+    <apex:form >
+        <apex:pageblock title="Authorization">
+        <apex:pageblockButtons location="top" >
+        <apex:commandButton value="RequestCode" action="{!requestCode}"/>
+           </apex:pageblockButtons>
+       <apex:pageBlockSection columns="1">
+           <apex:pageblocksectionitem >
+               <apex:outputLabel value="ClientId" />
+               <apex:inputText value="{!ClientId}" size="50"/>
+                 </apex:pageblocksectionitem>
+        <apex:pageblocksectionitem >
+            <apex:outputLabel value="state " />
+               <apex:inputText value="{!state}" size="50"/>
+           </apex:pageblocksectionitem>
+                  <apex:pageblocksectionitem >
+            <apex:outputLabel value="redirectUri " />
+               <apex:outputText value="{!redirectUri}" />
+           </apex:pageblocksectionitem>
+        </apex:pageBlockSection>
+            </apex:pageblock>
+    </apex:form>
+ </apex:page>

@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event templete" >
+<aura:attribute name="SearchText" Type="String" />
+
+</aura:event>

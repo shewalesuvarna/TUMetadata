@@ -1,0 +1,10 @@
+<aura:component controller="ComponenrEvent_Practice" >
+    <aura:attribute name="Cacc" type="Account" default="{'SobjectType:''Account'}"/>
+    <aura:registerEvent name="cmpEvent" type="c:ComponetEvent_Practice"/>
+	<Lightning:card title = "Account Data">
+    <Lightning:input label="Account Name" value="{!v.Cacc.Name}" />
+    <Lightning:input label="Account Phone" value="{!v.Cacc.Phone}"/>
+    <lightning:input label="Account Industry" value="{!v.Cacc.Industry}"/>
+    <lightning:button label ="Submit" onclick="{!C.Clickme}"/>
+    </Lightning:card>
+</aura:component>

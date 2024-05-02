@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Record Edit form">
+
+    <lightning-record-edit-form  object-api-name={objectApiName}  onsuccess={handleSuccess} density="compact" > 
+    <lightning-input-field field-name={nameField}></lightning-input-field>
+    <lightning-input-field field-name="Id" value={playerId}></lightning-input-field>
+    <lightning-input-field field-name={GoalField}></lightning-input-field>
+    <lightning-input-field field-name={ClubField}></lightning-input-field> 
+    <lightning-button class="slds-m-top_small" 
+    type="submit" 
+    label="submit"
+    variant="brand"> 
+  </lightning-button> 
+</lightning-record-edit-form>
+
+</lightning-card>
+</template>

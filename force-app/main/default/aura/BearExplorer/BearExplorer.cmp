@@ -1,0 +1,13 @@
+<aura:component   implements="flexipage:availableForAllPageTypes" access="global" Controller="Beersearchservice" >
+    <aura:handler name="BearEvent " event="c:SearchEvent" action="{!c.handleCompEvent}"    />
+    <aura:attribute  name="beerlist" type="Object" />
+    <div>
+    <c:HeaderComponent  TagLine="BearExplorer" Message="Search The bear "/>
+    </div>
+    <div>
+        <c:BearSearch />
+</div>
+    <div>
+        <c:BeerListCompenent  RecordList="{#v.beerlist}" />
+    </div>
+</aura:component>

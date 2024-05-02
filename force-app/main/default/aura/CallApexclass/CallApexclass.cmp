@@ -1,0 +1,9 @@
+<aura:component >
+ <aura:attribute name="accname" type="String"/>
+ <aura:attribute name ="accphone" type="String"/>  
+<lightning:card>
+    <lightning:input label="Enter account name" value ="{!v.accname}"/>
+    <lightning:input label="Enter account name" value ="{!v.accphone}"/>
+    <lightning:button label ="save" onclick =""/>
+</lightning:card>
+</aura:component>

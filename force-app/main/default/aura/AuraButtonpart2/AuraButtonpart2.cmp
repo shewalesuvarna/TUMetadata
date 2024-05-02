@@ -1,0 +1,14 @@
+<aura:component >
+    <Lightning:Button label ="Follow" iconName ="utility:add" />
+    <Lightning:ButtonGroup >
+   	<Lightning:Button label ="New Contact"/>
+   	<Lightning:Button label ="New Case"/>
+   	<Lightning:Button label ="New Note"/>
+   	<Lightning:Button label ="Follow"/>
+  	<Lightning:ButtonMenu AlternativeText = "ButtonMenu" >
+        <Lightning:MenuItem label = "New Opportunity" value ="Newopp"/>   
+        <Lightning:MenuItem label = "Change Owner" value ="CW"/>
+        <Lightning:MenuItem label = "Submit for Approval" value ="SA"/>
+        </Lightning:ButtonMenu>
+    </Lightning:ButtonGroup>
+</aura:component>

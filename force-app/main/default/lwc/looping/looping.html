@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Looping Example using forEach">
+
+            <template for:each={accounts.data} for:item="account">
+                <div key={account.Id}>{account.Name}</div>
+        </template>
+        
+    </lightning-card>
+</template>

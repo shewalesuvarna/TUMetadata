@@ -1,0 +1,10 @@
+<template>
+<lightning-card title="Simple Intrest">
+<lightning-layout-item size="12" padding="around-medium"></lightning-layout-item>
+<lightning-input type="number" label ="Enter principal"  onchange={principalvalue}></lightning-input>
+<lightning-input type="number" label ="Enter no of year"  onchange={yearvalue}></lightning-input>
+<lightning-input type="number" label ="Enter Interest"  onchange={ratevalue}></lightning-input>
+<lightning-button label="Calculate SI " icon-position="center" onclick={Calculate}></lightning-button> 
+<lightning-formatted-text value={currentOutput}></lightning-formatted-text>
+</lightning-card>
+</template>

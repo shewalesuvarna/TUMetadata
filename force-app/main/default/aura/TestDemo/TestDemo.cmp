@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+  
+    <div>
+   <lightning:input label="Customer Name"  required="true"  aura:id="ConName" />     
+ <lightning:input label="Customer Number"  required="true" aura:id= "ConNum"/>
+ <lightning:input label="Street Address"  required="true"  aura:id="street"/>
+    <lightning:input label="City/Suburb"  required="true"  aura:id="city"/>
+    <lightning:input label="State"  required="true"  aura:id="State" />
+    <lightning:input label="Post/Zip Code"   aura:id="postal"/>
+     <lightning:input label="Country"  required="true"  aura:id="Country"/>
+     <lightning:button label="Save" variant="neutral" onclick="{!c.createCreditDemo}"/> 
+     </div>
+    
+    
+</aura:component>

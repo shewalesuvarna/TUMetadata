@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+        <lightning-record-form
+            object-api-name={accountObject}
+            fields={accountFields}
+            onsuccess={handleAccountCreated} columns="2">
+        </lightning-record-form>
+    </lightning-card>
+</template>

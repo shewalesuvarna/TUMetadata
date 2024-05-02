@@ -1,0 +1,19 @@
+<aura:component>
+    <aura:attribute name="num1" type="Integer" />
+    <aura:attribute name="num2" type="Integer" />
+    <aura:attribute name="num3" type="Integer" />
+    <aura:attribute name="Result" type="String" />
+    <lightning:card title="Calculate greater number" iconName="utility:keyPad">
+    <lightning:input label="Enter First Number" value="{!v.num1}" />
+    <lightning:input label="Enter Second Number" value="{!v.num2}" />
+    <lightning:input label="Enter Third Number" value="{!v.num3}" />
+    <aura:set attribute ="footer">
+    <lightning:Button label = "Calculate" variant= 'brand' iconName = "utility:light_bulp" onclick ="{!c.calfunction}" />
+	<lightning:Button label = "Clear"  iconName = "utility:light_bulp" onclick ="{!c.Clear}" variant= 'destructive' />
+     </aura:set>
+     <p></p>   
+     <b>*****************  Result *****************</b>
+      <p></p> 
+        The greater number is : {!v.Result}
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component>
+    <aura:registerEvent name="CustomLookupEvent" type="c:SearchCustomLookupEvent"/>
+    <div>
+        <lightning:input
+            aura:id="enter-search"
+            name="enter-search"
+            label="Search when user hits the 'enter' key"
+            type="search"
+            onkeyup="{!c.handleKeyUp}" />
+    </div>
+
+</aura:component>

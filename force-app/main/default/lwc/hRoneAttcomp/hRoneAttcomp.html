@@ -1,0 +1,30 @@
+<!-- HRoneAttcomp.html -->
+<template>
+    <lightning-card style="margin-right: 80px">
+        uuuuuuuuuuuuuuuuuuuuuuuu
+        <div style="text-align: center;">
+            <h2 style="font-size: 24px;"><b>Mark Attendance</b></h2>
+        </div> 
+        <p></p>
+        <div>
+            <p>Current Date and Time: {currentDateTime}</p>
+        </div>
+
+        <!-- Add a space or apply margin to create a gap -->
+        <div style="margin-bottom: 10px;"></div>
+
+        <p><label>Write your remark</label></p> 
+        <!-- Set the default size of the textarea -->
+        <textarea id="remarks" name="remarks" style="width: 900px; height: 100px;" placeholder="Enter your remarks here..." oninput={getInputValue}></textarea>
+        <!--<div class="map-container" lwc:dom="manual"></div>
+        <lightning-map map-markers={markerVar} zoom-level="10" style="height: 200px;"></lightning-map>-->
+
+        <br/><br/>
+
+        <div style="text-align: left;">
+            <lightning-button variant="brand" label="Check In" onclick={checkin}></lightning-button>
+            <span style="margin-left:10px;"></span>
+            <lightning-button variant="brand" label="Check Out" onclick={checkout}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

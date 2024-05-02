@@ -1,0 +1,13 @@
+<apex:page Controller="Showallaccountrecords">
+<apex:form >
+<apex:pageBlock title="Account count: {!acc.size}"  >
+<apex:pageBlockTable value="{!acc}" var="ac">
+<apex:column >
+<apex:outputlink value="/{!ac.id}" target="_blanck" >"{!ac.name}" </apex:outputlink>
+</apex:column>
+  <apex:column value="{!ac.phone}"/>  
+  </apex:pageBlockTable>
+  </apex:pageBlock>
+</apex:form>
+  
+</apex:page>

@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<Lightning:button label ='Button 1' variant = "brand" IconName= "utility:bug"/>
+<Lightning:button label ='Button 2' variant = "Success"/>    
+<Lightning:button label ='Button 3' variant = "Destructive"/>    
+<Lightning:button label ='Button 4' variant = "Base"/>
+</aura:component>

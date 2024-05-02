@@ -1,0 +1,9 @@
+<aura:component controller="CreditDemoApex" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<div>
+   <lightning:input type="text" label="Customer Name"  required="true"  aura:id="ConName" />     
+
+     <lightning:button label="Create Account" variant="brand"  onclick="{!c.createCreditDemo}"/> 
+  
+  </div>  
+    
+</aura:component>

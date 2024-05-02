@@ -1,0 +1,320 @@
+<aura:component
+  controller="InhouseApex"
+  implements="force:hasRecordId,forceCommunity:searchInterface,force:lightningQuickActionWithoutHeader"
+>
+  <b
+    ><h1
+      style="text-align:center; margin-bottom:20px; color: teal; font-size: 20px;"
+      >Credit Memo Request</h1
+    ></b
+  >
+  <aura:attribute name="recordId" type="Id" />
+  <aura:attribute name="recordCon" type="Id" />
+  <aura:attribute name="customerName" type="String" />
+  <aura:attribute name="customerNumber" type="String" />
+  <aura:attribute name="streetAddress" type="String" />
+  <aura:attribute name="city" type="String" />
+  <aura:attribute name="state" type="String" />
+  <aura:attribute name="zipCode" type="String" />
+  <aura:attribute name="country" type="String" />
+  <aura:attribute name="contacts" type="List" />
+  <aura:attribute name="selectedContactId" type="Id" />
+  <aura:attribute name="accountName" type="String" />
+  <aura:attribute name="vendorInvoice" type="String" />
+  <aura:attribute name="Description" type="String" />
+  <aura:attribute name="goodreturn" type="String" />
+  <aura:attribute name="goodshippedback" type="String" />
+  <aura:attribute name="selectedCurrency" type="String" />
+  <aura:attribute name="amount" type="Long" />
+  <aura:attribute name="amountInWords" type="String" />
+  <aura:attribute name="NewInvoiceComp" type="String" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit1}" />
+  <!--   <aura:handler name="init" value="{!this}"	 action="{!c.Getcontact}"/>
+ <span style="font-weight:bold; color:green;">Account Name:
+   	<b><lightning:formattedText value="{!v.accountName}" style="color:green" /></b> </span><br></br><br></br> -->
+  <h4 style="color: #00BFFF; font-size: medium;">Basic Details</h4>
+  <hr style="border-top: 1px solid black; width: 100%; margin: 0;" /> <br></br>
+  <lightning:input
+    type="String"
+    name="CustomerNumber"
+    label="Customer Number"
+    value="{!v.customerNumber}"
+    required="true"
+  />
+  <lightning:input
+    type="String"
+    name="CustomerName"
+    label="Customer Name"
+    value="{!v.customerName}"
+    required="true"
+  />
+  <!-- for account lookup -->
+  <aura:attribute name="selectedRecordName" type="String" />
+  <aura:attribute name="SelectRecordId" type="String" />
+  <aura:attribute name="displayList" type="Boolean" default="true" />
+  <aura:attribute name="SearchRecord" type="List" />
+  <aura:attribute name="iconName" type="String" default="standard:account" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <!-- Input component  account-->
+  <lightning:input
+    aura:id="userinput"
+    placeholder="Select Account"
+    type="Search"
+    name="Searchtext"
+    label=" Account name"
+    onchange="{!c.searchField}"
+    value="{!v.accountName}"
+    disabled="true"
+  />
+  <aura:if isTrue="{!v.displayList}">
+    <!-- Container for iteration -->
+    <aura:iteration items="{!v.SearchRecord}" var="serecord" indexVar="index">
+      <div class="lds-grid slds-wrap">
+        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+          <li role="presentation" class="slds-listbox__item">
+            <div
+              id="{!serecord.recId}"
+              data-name="{!serecord.recName}"
+              class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+              role="option"
+              onclick="{!c.SetSelectedRecord}"
+            >
+              <span class="slds-media__figure slds-listbox__option-icon">
+                <lightning:icon
+                  iconName="{!v.iconName}"
+                  alternativeText="Event"
+                />
+              </span>
+              <span class="slds-media__body">
+                <span
+                  class="slds-listbox__option-text slds-listbox__option-text_entity"
+                  >{!serecord.recName}</span
+                >
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </aura:iteration>
+  </aura:if>
+  <!-- contact lookup -->
+  <aura:attribute name="SearchCon" type="List" />
+  <aura:attribute name="displayListcon" type="Boolean" default="true" />
+  <aura:attribute name="Contactname" type="String" />
+  <aura:attribute name="contactId" type="String" />
+  <aura:attribute name="iconName1" type="String" default="standard:contact" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <lightning:input
+    aura:id="input"
+    placeholder="Select Contact"
+    type="Search"
+    name="Searchcon"
+    label="Contact name"
+    onchange="{!c.fetchContacts}"
+    value="{!v.Contactname}"
+    required="true"
+  />
+  <aura:if isTrue="{!v.displayListcon}">
+    <aura:iteration items="{!v.SearchCon}" var="conrecord" indexVar="abc">
+      <div class="lds-grid slds-wrap">
+        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+          <li role="presentation" class="slds-listbox__item">
+            <div
+              id="{!conrecord.Id}"
+              data-name="{!conrecord.Name}"
+              class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+              role="option"
+              onclick="{!c.SetSelectedRecordcon}"
+            >
+              <span class="slds-media__figure slds-listbox__option-icon">
+                <lightning:icon
+                  iconName="{!v.iconName1}"
+                  alternativeText="contact"
+                />
+              </span>
+              <span class="slds-media__body">
+                <span
+                  class="slds-listbox__option-text slds-listbox__option-text_entity"
+                  >{!conrecord.Name}</span
+                >
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </aura:iteration>
+  </aura:if>
+  <lightning:input
+    type="String"
+    name="StreetAddress"
+    label="Street Address"
+    value="{!v.streetAddress}"
+    required="true"
+    onclick="{!c.SetSelectedRecordcon}"
+  />
+  <lightning:input
+    type="String"
+    name="City"
+    label="City"
+    value="{!v.city}"
+    onclick="{!c.SetSelectedRecordcon}"
+  />
+  <lightning:input
+    type="String"
+    name="State"
+    label="State"
+    value="{!v.state}"
+  />
+  <lightning:input
+    type="String"
+    name="country"
+    label="country"
+    value="{!v.country}"
+  />
+  <lightning:input
+    type="String"
+    name="ZipCode"
+    label="Zip code"
+    value="{!v.zipCode}"
+  />
+  <aura:attribute name="selectedCreditDetail" type="String" default="" />
+  <aura:attribute name="selectedCreditResoan" type="String" default="" />
+
+  <br></br> <h4 style="color: #00BFFF; font-size: medium;">Credit Details</h4>
+  <hr style="border-top: 1px solid black; width: 100%; margin: 0;" /> <br></br>
+  <aura:attribute
+    name="picklistOptions"
+    type="List"
+    default="[
+        {'label': 'Financial Credit-No Stock', 'value': 'Financial Credit-No Stock'},
+        {'label': 'Return Order-Stock Credit', 'value': 'Return Order-Stock Credit'},
+        {'label': 'Return Order-Pricing Credit', 'value': 'Return Order-Pricing Credit'}
+       ]"
+  />
+
+  <!-- Combobox for credit details -->
+  <lightning:combobox
+    name="creditDetails"
+    label="Credit Details"
+    value="{!v.selectedCreditDetail}"
+    options="{!v.picklistOptions}"
+  />
+  <aura:attribute
+    name="resonforcreadit"
+    type="List"
+    default="[
+        {'label': 'Free Goods', 'value': 'Free Goods'},
+        {'label': 'Promotional/Advertising', 'value': 'Promotional/Advertising'},
+        {'label': 'Price Adjustment', 'value': 'Price Adjustment'},
+        {'label': 'Returned Goods', 'value': 'Returned Goods'},
+        {'label': 'Discount/Rebate', 'value': 'Discount/Rebate'},
+        {'label': 'Other', 'value': 'Other'}   
+        ]"
+  />
+  <!-- Combobox for credit details -->
+  <lightning:combobox
+    name="resonforcreadit"
+    label="What was the reason for credit"
+    value="{!v.selectedCreditResoan}"
+    options="{!v.resonforcreadit}"
+  />
+  <lightning:input
+    type="String"
+    name="Vendor Invoice #"
+    label="Vendor Invoice #"
+    value="{!v.vendorInvoice}"
+  />
+  <lightning:textarea
+    name="Description"
+    label="Description"
+    required="true"
+    value="{!v.Description}"
+    placeholder="Enter Description"
+    rows="4"
+    maxlength="255"
+  />
+  <aura:attribute
+    name="goodreturnvalue"
+    type="List"
+    default="[
+        {'label': 'Yes', 'value': 'Yes'},
+        {'label': 'No', 'value': 'No'} ]"
+  />
+  <!-- Combobox for credit details -->
+  <lightning:combobox
+    name="goodreturns"
+    label="Have the goods been returned by the customer?"
+    value="{!v.goodreturn}"
+    options="{!v.goodreturnvalue}"
+  />
+  <aura:attribute
+    name="goodshippedbackvalue"
+    type="List"
+    default="[
+        {'label': 'Yes', 'value': 'Yes'},
+        {'label': 'No', 'value': 'No'} ]"
+  />
+  <!-- Combobox for credit details -->
+  <lightning:combobox
+    name="goodshippedback"
+    label="Will the goods be shipped back to AU?"
+    value="{!v.goodshippedback}"
+    options="{!v.goodshippedbackvalue}"
+  />
+  <lightning:select
+    name="currency"
+    label="Currency"
+    value="{!v.selectedCurrency}"
+  >
+    <option value="INR">INR</option>
+    <option value="USD">USD</option>
+  </lightning:select>
+
+  <lightning:input
+    name="Amount"
+    type="Long"
+    label="Amount"
+    value="{!v.amount}"
+    onchange="{!c.handleAmountChange}"
+  />
+  <lightning:input
+    type="String"
+    name="Amount In Words"
+    label="Amount In Word"
+    value="{!v.amountInWords}"
+    disabled="true"
+  />
+
+  <aura:attribute
+    name="InvoiceValue"
+    type="List"
+    default="[
+        {'label': 'Yes', 'value': 'Yes'},
+        {'label': 'No', 'value': 'No'} ]"
+  />
+  <!-- Combobox for credit details -->
+  <lightning:combobox
+    name="Invoice"
+    label="Has new Invoice been sent to the customer?"
+    value="{!v.Invoice}"
+    options="{!v.InvoiceValue}"
+  />
+  <lightning:input
+    type="String"
+    name="New Invoice #"
+    label="New Invoice #"
+    value="{!v.NewInvoiceComp}"
+  />
+  <br></br>
+  <div class="slds-form-element">
+    <div class="slds-align_absolute-left">
+      <lightning:button
+        name="Submit"
+        label="Submit"
+        onclick="{!c.handleSubmit}"
+        variant="brand"
+      />
+    </div>
+  </div>
+  <br></br>
+</aura:component>

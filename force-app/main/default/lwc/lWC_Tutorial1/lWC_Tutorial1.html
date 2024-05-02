@@ -1,0 +1,17 @@
+<template>
+    <lightning-card>
+        * Call the controller  static variable value in component *
+        ********* First way **********
+        <template for:each={city} for:item=c>
+            <p key={c}>{c}</p>
+        </template>
+        *******Second way *********
+        <template iterator:item={city}>
+            <p key={item.value}>{item.value}</p>  
+        </template>
+        *******JSON Fotmat*********
+        <p></p>
+         Name:student.Name  <p></p> 
+         Age:student.Age<p></p>
+    </lightning-card>
+</template>

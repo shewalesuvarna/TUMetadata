@@ -1,0 +1,8 @@
+<aura:component controller="getContact">
+    <aura:attribute name ="con" type="contact[]"/>
+    <aura:attribute name="conList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.loadme}"/>
+    <lightning:card title="Display Contact">
+    <lightning:datatable keyfield="Id" data="{!v.con}" column="{!v.conList}"/>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,23 @@
+<aura:component>
+    <!-- How to define simple button in aura  --> 
+    
+<Lightning:button label ='Button 1' variant = "brand"/>
+<Lightning:button label ='Button 2' variant = "Success"/>    
+<Lightning:button label ='Button 3' variant = "Destructive" iconposition ="right" />    
+<Lightning:button label ='Button 4' variant = "brand" iconName = "utility:setup"/> <!-- button with icon  -->
+    <!-- Buton icon only disply icon -->
+<Lightning:buttonIcon alternativeText="suvarna" iconName = "utility:setup" variant = "bare" size ='xx-large'/>
+    
+    <!-- ButtonMenu -->
+<Lightning:ButtonMenu alternativeText ="suvarna" >
+    <Lightning:Menusubheader label = "Technology 1" />
+    <Lightning:MenuItem label = "Salesforce"/>
+    <Lightning:MenuItem label = "LWC"/>
+    <Lightning:MenuItem label = "Web"/>
+	<Lightning:Menusubheader label = "Technology 2" />
+    <Lightning:MenuItem label = "Java"/>
+    <Lightning:MenuItem label = "PHP"/>
+    <Lightning:MenuItem label = "ServiceNow"/>
+    </Lightning:ButtonMenu>    
+    
+ </aura:component>

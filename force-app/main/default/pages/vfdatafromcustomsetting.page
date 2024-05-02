@@ -1,0 +1,21 @@
+<apex:page controller="CustomSettingController">
+    <apex:form id="myForm">
+        <apex:pageBlock title="Custom Setting Data">
+            <apex:pageMessages /> <!-- Displays general messages, including errors -->
+
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveCustomSetting}" value="Save" rerender="myForm"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection columns="1">
+                <!-- Add your input fields here -->
+                <apex:inputText value="{!customSettingInstance.Password__c}" label="Password"/>
+            </apex:pageBlockSection>
+
+            <!-- Display success message -->
+            <apex:outputPanel rendered="{!NOT(ISBLANK(successMessage))}">
+                <apex:pageMessage summary="{!successMessage}" severity="info"/>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

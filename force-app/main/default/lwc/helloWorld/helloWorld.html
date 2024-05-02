@@ -1,0 +1,33 @@
+<template>
+    
+        <lightning-card>
+            <div class="slds-var-m-around_medium">
+             <b><lightning-input type="Text" label="Enter the course name" onkeyup={ChangeHandler}> </lightning-input></b>
+             
+       <div>{fullname} is a course of {title}</div> 
+            </div>
+           </lightning-card>
+          <!--@track function-->  
+           <lightning-card title="@track function">
+            <div class="slds-var-m-around_medium">
+             <b><lightning-input type="Text" label="Enter City Name:" onkeyup={TrackHandler}> </lightning-input></b>
+             
+       <div>{address.city} is my City</div> 
+            </div>
+           </lightning-card>
+
+          <!-- Getter method -->
+         <lightning-card title="Getor  Demo">
+            <div class="slds-var-m-around_medium">
+        <!--<div>First username is{firstuser}</div>-->  
+       <div> Multiplication of {num1} and {num2} is{multiply}</div>
+        </div>
+           </lightning-card>
+           
+
+
+
+
+
+   
+</template>

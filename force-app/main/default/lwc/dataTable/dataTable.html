@@ -1,0 +1,11 @@
+<template>
+    <lightning-card>
+        <template if:true={mydata.data}>
+            <lightning-datatable key-field="id" data={mydata.data} columns={columnData}>
+            </lightning-datatable>
+        </template>
+        <template if:true={mydata.error}>
+            Data not available: {mydata.error}
+        </template>
+    </lightning-card>
+</template>

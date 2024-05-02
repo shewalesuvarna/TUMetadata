@@ -1,0 +1,23 @@
+<!-- Your Lightning Component -->
+<aura:component>
+
+    <!-- Attributes -->
+    <aura:attribute name="selectedAccountId" type="Id"/>
+    <aura:attribute name="contacts" type="Contact[]"/>
+
+    <!-- Input Field for Account Lookup -->
+    <lightning:input 
+        aura:id="enter-search"
+        name="enter-search"
+        label="Account"
+        type="search"
+        onchange="{!c.handleAccountChange}" />
+
+    <!-- Dropdown for Contacts -->
+    <lightning:select name="contactList" label="Contacts" aura:id="contactList">
+        <aura:iteration items="{!v.contacts}" var="contact">
+            <option value="{!contact.Id}">{!contact.Name}</option>
+        </aura:iteration>
+    </lightning:select>
+
+</aura:component>

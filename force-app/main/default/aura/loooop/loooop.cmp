@@ -1,0 +1,32 @@
+<aura:component controller="loopapex" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+
+    <!-- Define attributes -->
+    <aura:attribute name="Label" type="String" default="Contact name"/>
+    <aura:attribute name='recordId' type='Id'/>
+    <aura:attribute name="selectedRecordName" type="String"/>
+    <aura:attribute name="displayList" type="Boolean" default='true'/>
+    <aura:attribute name="SearchRecord" type="List" />
+    <aura:attribute name="iconName" type="String" default="standard:contact"/>
+	 <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<!-- Input component -->
+    <lightning:input aura:id="userinput" label="{!v.Label}" name="Searchtext" onchange="{!c.searchField}"/>
+	<!-- Container for iteration -->
+    <div class="container">
+        <aura:iteration items="{!v.SearchRecord}" var="serecord" indexVar="index">
+            <div class="lds-grid slds-gutters">
+                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                    <li role="presentation" class="slds-listbox__item">
+                        <div id="{!serecord.Id}" data-name="{!serecord.Name}" class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option" onclick="{!c.SetSelectedRecord}">
+                            <span class="slds-media__figure slds-listbox__option-icon">
+                                <lightning:icon iconName="{!v.iconName}" alternativeText="Contact"/>
+                            </span>
+                            <span class="slds-media__body">
+                                <span class="slds-listbox__option-text slds-listbox__option-text_entity">{!serecord.Name}</span>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aura:iteration>
+    </div>
+</aura:component>

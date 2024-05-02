@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Conditional Rendering Directive">
+        <lightning-button label="Show Data" 
+                          title="Show Data" 
+                          onclick={handleClick}>
+        </lightning-button>
+        <template lwc:if={isVisible}>
+            <div>Hi....</div>
+        </template>
+        <template lwc:else>
+            
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,18 @@
+<apex:page controller="searchRecordsController"  setup="false" sidebar="false" showHeader="true" tabStyle="Account"> 
+<apex:sectionHeader title="SearchResult" subtitle=" account serach result"   />
+<apex:form >
+             <apex:pageBlock >
+                 <apex:pageblockButtons location="top">
+                     <apex:commandButton value="Search Again" action="{!GotoSerchresultpage}"/>
+                 
+                 </apex:pageblockButtons>
+                 <apex:pageBlockTable value="{!acc}" var="ac">
+                     <apex:column >
+                       <!--  <apex:outputLink value="/{ac.id}" >{!ac.Name}</apex:outputLink> -->
+                     </apex:column>
+                         <apex:column value="{!ac.Name}" />
+                     <apex:column value="{!ac.id}" />
+                 </apex:pageBlockTable>
+     </apex:pageBlock>
+         </apex:form>
+</apex:page>

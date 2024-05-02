@@ -1,0 +1,6 @@
+<template>
+    <lightning-card title="Your Card Title">
+        <lightning-input label="Name:" onchange={input}></lightning-input>
+        <lightning-datatable key-field="Id" data={sks.data} columns={col} onsave={handleSave} draft-values={draftValues}></lightning-datatable>
+    </lightning-card>
+</template>

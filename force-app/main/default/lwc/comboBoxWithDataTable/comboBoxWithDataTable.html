@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title=" Get Account and  disp related contact ">
+        <!-- Create comboBox -->
+<lightning-combobox 
+            name="Account ComboBox"
+            label=" Select Account "
+            value={value}
+            options={options}
+            onchange={handleChange}
+            placeholder="Select Account" >
+        </lightning-combobox>
+        </lightning-card>
+        <!-- show hide card -->
+    
+        <template if:true ={IsVisible}>
+            <lightning-card title="Related contact details">
+
+            <!-- contact data table will  displaye -->
+        <lightning-datatable
+        data={data}
+        key-field="Id"
+        columns={columns} >
+ </lightning-datatable>
+</lightning-card>
+</template>
+</template>

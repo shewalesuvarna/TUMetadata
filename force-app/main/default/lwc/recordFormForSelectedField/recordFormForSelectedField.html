@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Record form">
+        <template if:true={recordId}>
+            <lightning-record-form record-id={recordId} object-api-name="Account" fields={myFields}></lightning-record-form>
+        </template>
+        <template if:false={recordId}>
+            Invalid Record Id
+        </template>
+    </lightning-card>
+</template>

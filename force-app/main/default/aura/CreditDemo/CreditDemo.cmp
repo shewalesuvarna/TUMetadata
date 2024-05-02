@@ -1,0 +1,22 @@
+<aura:component controller="CreditDemoApex" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<aura:attribute name="newContact" type="Contact" default="{ 'sobjectType': 'Contact'}"/>
+ <div>
+ <lightning:button label = "Print Form" onclick = "{!c.downloadDocument}" />
+ <lightning:button label = "Cancel" onclick = "{!c.downloadDocument}" />  
+ <br></br>  
+<b>Created By : {!v.userId}</b>
+<br></br>   
+<br></br>
+<h3 class="custom-heading"><b>Basic Details</b></h3>
+
+<br></br>              
+   <lightning:input label="Customer Name"  required="true"  aura:id="ConName" />     
+ <lightning:input label="Customer Number"  required="true" aura:id= "ConNum"/>
+ <lightning:input label="Street Address"  required="true"  aura:id="street"/>
+    <lightning:input label="City/Suburb"  required="true"  aura:id="city"/>
+    <lightning:input label="State"  required="true"  aura:id="State" />
+    <lightning:input label="Post/Zip Code"   aura:id="postal"/>
+     <lightning:input label="Country"  required="true"  aura:id="Country"/>
+     <lightning:button label="Save" variant="neutral" onclick="{!c.createCreditDemo}"/> 
+    </div>
+</aura:component>

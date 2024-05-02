@@ -1,0 +1,64 @@
+<aura:component>
+    
+    <!-- how to define buttons -->
+    <lightning:button label="submit" variant="Success" iconName="utility:approval"/>
+	<!-- alternative text  button :incase system is not call slds then immediatlly alernative text is display -->
+    <lightning:buttonIcon alternativeText="Setup" iconName="utility:setup" variant="bare"/>
+    <!-- How to define buttonmenu -->
+    <lightning:buttonMenu>
+    <lightning:menuitem label="Salesforce Lightning" value="SFDC" />
+    </lightning:buttonMenu>
+    <!--  get the value without attribute in js -->
+    <lightning:input label="Enter first number" aura:id ="num1"/>    
+    <!--how to call init -->
+    <aura:handler name="init" value="{!this}" action="{!c.whishme}" />
+    Hi, Good morning
+    <!-- how to define lightning card -->
+    <lightning:card title="SFDC card"/>
+    <!-- how to use attribute in aura componant -->
+    <aura:attribute name ="empname" type="String" default="ss"/>
+    <aura:attribute name="empsal" type="Decimal"/>
+	<aura:attribute name="empage" type="Integer"/>
+    <lightning:card title="How to use attribute">
+    Emp Name: {!v.empname} <p></p>
+	Emp age:{!v.empsal}<p></p>
+    Emp Salary:{!v.empage}<p></p>
+    <lightning:buttongroup><!-- define button group -->
+    <lightning:button label="Submit" onclick="{!c.subme}" />
+    <lightning:button label="Clear" onclick="{!c.Clearme}"/>
+    </lightning:buttongroup>    
+    </lightning:card> -->
+    <!-- Lightning input function caclculator exmple -->
+    <aura:attribute name ="num1" type="Integer" />
+    <aura:attribute name ="num2" type="Integer" />
+    <aura:attribute name ="result" type="Integer" />
+    <lightning:card>   
+    <lightning:input label=" Enter  first number" value="{!num1}" type="Text"/>
+    <lightning:input label="Enter second number" value="{!num2}" type="Text"/>
+    <lightning:input label="Result" value="{!result}"/>
+    <lightning:input label=" Password" type="Password" requird="true"/> <!-- for password -->
+        <aura:set attribute="actions">
+        <lightning:buttongroup>
+            <lightning:button label="Calculate" onclick ="{!c.Calculate}"/>
+            <lightning:button label="clear" onclick ="{!c.Clear}"/>
+	 </lightning:buttongroup>
+        </aura:set>
+        ******************** Result ***************************
+        The greater number is:{!v.Result}
+        
+        <!-- How to use aura id -->
+	<lightning:card Title="Calculator aura id example">
+      <lightning:button label="Add" onclick ="{!c.calme}" aura:id ="Add"/>
+      <lightning:button label="Substract" onclick ="{!c.calme}" aura:id="Sub"/>
+      <lightning:button label="Multiplication" onclick ="{!c.calme}" aura:id= "Mult"/>
+      <lightning:input label="Enter first number" aura:id ="Aval" type="text"/>
+      <lightning:input label="Enter second number" aura:id ="Bval" type="text"/>
+        *********** Result************
+      <lightning:input label="Result is:" aura:id="result" />
+    </lightning:card>        
+        
+        
+        
+	</lightning:card>	
+    
+</aura:component>

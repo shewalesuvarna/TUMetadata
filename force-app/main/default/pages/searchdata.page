@@ -1,0 +1,15 @@
+<apex:page controller="RetUrlSearchController1">
+  <apex:form >
+    <apex:pageBlock title="Account Details" >
+   <apex:inputText value="{!nameQuery}"/>
+      <apex:commandButton action="{!executeSearch}" value="Search"/>
+         <apex:pageBlockTable value="{!accounts}" var="acc">
+      <apex:column >
+<apex:outputLink value="/{!acc.id}/e?retURL={!URLENCODE('/r/Account?query'+nameQuery)}">{!acc.Name}</apex:outputLink>
+  </apex:column>
+ 
+     <apex:column value="{!acc.id}"/> 
+   </apex:pageBlockTable>
+    </apex:pageblock>
+    </apex:form>
+</apex:page>

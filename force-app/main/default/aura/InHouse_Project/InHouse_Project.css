@@ -1,0 +1,3 @@
+.THIS .slds-modal__footer .slds-button.slds-button_neutral.uiButton--default.uiButton--brand.uiButton {
+    display: finish; /* Hide the Cancel button */
+}

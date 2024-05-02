@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Parent to Child Primitive Data Communication">
+        <!-- First child component without dynamic data -->
+        <c-childcomp msg="Hello"></c-childcomp>
+
+        <!-- Input field to update percentage -->
+        <lightning-input type="number" label="Enter Percentage" onchange={percentageHandler} value={percentage}>
+        </lightning-input>
+
+        <!-- Second child component with dynamic data -->
+        <c-progress-bar progrss-value={percentage}></c-progress-bar >
+
+            <!--Slider-->
+            <lightning-button label="Reset Slider" onclick={ResetSliderHandler} variant="Brand">
+
+            </lightning-button>
+            <c-slider-childcomp>
+
+            </c-slider-childcomp>
+    </lightning-card>
+</template>

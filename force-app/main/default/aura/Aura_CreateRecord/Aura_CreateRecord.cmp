@@ -1,0 +1,17 @@
+<aura:component Controller="Aura_CreateAccApex" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    
+    <!-- Attribute with corrected name -->
+    <aura:attribute name="account" type="Account" default="{ 'sobjectType': 'Account' }"/>
+    
+    <lightning:card title="Create Account">
+        <!-- Input for Account Name -->
+        <lightning:input label="Account Name" value="{!v.account.Name}" />
+        
+        <!-- Input for Account Phone -->
+        <lightning:input label="Account Phone" value="{!v.account.Phone}" />
+        
+        <!-- Button to save the Account -->
+        <lightning:button label="Save" onclick="{!c.saveAccount}" />
+    </lightning:card>
+    
+</aura:component>
